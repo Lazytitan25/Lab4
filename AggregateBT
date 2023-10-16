@@ -1,0 +1,30 @@
+public class AggregateBT extends BinaryTree {
+    private int countEvenNumber(Node<Integer> currentNode) {
+        if (currentNode == null) {
+            return 0;
+        }
+
+        int count = 0;
+
+        if (currentNode != null && currentNode.data % 2 == 0) {
+            count = 1;
+        }
+        return count;
+
+    }
+
+    private int findSum(Node<Integer> currentNode) {
+        if (currentNode == null) {
+            return 0;
+        }
+
+        int sum = 0;
+
+        if (currentNode != null) {
+            sum = (int) currentNode.data;
+        }
+
+        return sum;
+    }
+    
+}
