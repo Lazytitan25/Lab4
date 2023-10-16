@@ -26,4 +26,8 @@ public class BinaryTree<Integer> {
 			}
 		}
 		}
+
+	public static void testing()
+	{
+	}
 }
