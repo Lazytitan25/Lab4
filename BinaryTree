@@ -1,7 +1,8 @@
+package lab4;
 public class BinaryTree<Integer> {
 
 	protected Node<Integer> root;
-	private static class Node<Integer>
+	public static class Node<Integer>
 	{
 		Node<Integer> right;
 		Node<Integer> left;
@@ -9,13 +10,18 @@ public class BinaryTree<Integer> {
 		Node()
 		{
 			data = null; 
+			right = null; 
+			left = null;
 		}
 		Node(Integer newData)
 		{
 			data = newData; 
+			right = null; 
+			left = null;
 		}
-		Node(Integer data, BinaryTree<Integer> rightTree, BinaryTree<Integer> leftTree)
+		Node(Integer newData, BinaryTree<Integer> rightTree, BinaryTree<Integer> leftTree)
 		{
+			data = newData;
 			if(leftTree != null)
 			{
 				left = leftTree.root;
@@ -24,10 +30,12 @@ public class BinaryTree<Integer> {
 			{
 				right = rightTree.root;
 			}
+			
 		}
-		}
+		
 
-	public static void testing()
-	{
+
+		public static void testing()
+		{
+		}
 	}
-}
