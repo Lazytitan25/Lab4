@@ -1,4 +1,7 @@
+//class extends BinaryTree
 public class AggregateBT extends BinaryTree {
+
+//counts the even number and returns the number of odd values 
     private int countEvenNumber(Node<Integer> currentNode) {
         if (currentNode == null) {
             return 0;
@@ -13,6 +16,7 @@ public class AggregateBT extends BinaryTree {
 
     }
 
+//Calculate the sum of 
     private int findSum(Node<Integer> currentNode) {
         if (currentNode == null) {
             return 0;
@@ -24,7 +28,7 @@ public class AggregateBT extends BinaryTree {
             sum = (int) currentNode.data;
         }
 
-        return sum;
+        return sum + findSum(currentNode.left) + findSum(currentNode.right);;
     }
     
 }
