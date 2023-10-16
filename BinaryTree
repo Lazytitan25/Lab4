@@ -6,20 +6,20 @@ public class BinaryTree<Integer> {
 	{
 		Node<Integer> right;
 		Node<Integer> left;
-		Integer data; 
+		int data; 
 		Node()
 		{
-			data = null; 
+			data = 0; 
 			right = null; 
 			left = null;
 		}
-		Node(Integer newData)
+		Node(int newData)
 		{
 			data = newData; 
 			right = null; 
 			left = null;
 		}
-		Node(Integer newData, BinaryTree<Integer> rightTree, BinaryTree<Integer> leftTree)
+		Node(int newData, BinaryTree<Integer> rightTree, BinaryTree<Integer> leftTree)
 		{
 			data = newData;
 			if(leftTree != null)
@@ -33,7 +33,7 @@ public class BinaryTree<Integer> {
 			
 		}
 		}
-		BinaryTree<Integer>()
+		BinaryTree()
 		{
 			root = null;
 		}
@@ -41,7 +41,7 @@ public class BinaryTree<Integer> {
 
 
 
-		public static void testing()
+		public void testing()
 		{
 		}
 	}
