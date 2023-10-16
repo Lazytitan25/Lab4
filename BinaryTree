@@ -1,0 +1,29 @@
+public class BinaryTree<Integer> {
+
+	protected Node<Integer> root;
+	private static class Node<Integer>
+	{
+		Node<Integer> right;
+		Node<Integer> left;
+		Integer data; 
+		Node()
+		{
+			data = null; 
+		}
+		Node(Integer newData)
+		{
+			data = newData; 
+		}
+		Node(Integer data, BinaryTree<Integer> rightTree, BinaryTree<Integer> leftTree)
+		{
+			if(leftTree != null)
+			{
+				left = leftTree.root;
+			}
+			if(rightTree != null)
+			{
+				right = rightTree.root;
+			}
+		}
+		}
+}
