@@ -1,0 +1,115 @@
+package lab4;
+
+/**
+ * This class extends BinaryTree and provides additional functionality for searching
+ * elements in the binary tree.
+ * It includes methods to check if the tree contains elements greater than a given value,
+ * and to find the level of a given element.
+ * 
+ * @author Abdirahman Mohamed
+ */
+public class searchBT extends BinaryTree<Integer> {
+
+    /**
+     * Checks if the tree contains an element greater than the given item.
+     * 
+     * @param item The value to compare against.
+     * @return true if there is an element greater than the given item, false otherwise.
+     */
+    public boolean containsGreater(int item) {
+        return containsGreaterRecursive(root, item);
+    }
+
+    /**
+     * Helper method for containsGreater.
+     * Recursively checks if the tree contains an element greater than the given item.
+     * 
+     * @param node The current node being checked.
+     * @param item The value to compare against.
+     * @return true if there is an element greater than the given item, false otherwise.
+     */
+    private boolean containsGreaterRecursive(Node node, int item) {
+        if (node == null) {
+            return false;
+        }
+
+        if (node.data > item) {
+            return true;
+        }
+
+        boolean leftResult = containsGreaterRecursive(node.left, item);
+        boolean rightResult = containsGreaterRecursive(node.right, item);
+
+        return leftResult || rightResult;
+    }
+
+    /**
+     * Gets the level of a given item in the tree.
+     * 
+     * @param item The value to find the level of.
+     * @return The level of the item, or -1 if the item is not found.
+     */
+    public int getLevel(int item) {
+        return getLevelRecursive(root, item, 0);
+    }
+
+    /**
+     * Helper method for getLevel.
+     * Recursively finds the level of a given item in the tree.
+     * 
+     * @param node The current node being checked.
+     * @param item The value to find the level of.
+     * @param level The current level in the tree.
+     * @return The level of the item, or -1 if the item is not found.
+     */
+    private int getLevelRecursive(Node<Integer> node, int item, int level) {
+        if (node == null) {
+            return -1;
+        }
+        if (node.data == item) {
+            return level;
+        }
+        int leftLevel = getLevelRecursive(node.left, item, level + 1);
+        if (leftLevel != -1) {
+            return leftLevel;
+        }
+        int rightLevel = getLevelRecursive(node.right, item, level + 1);
+        return rightLevel;
+    }
+
+    /**
+     * Overrides the testing method in BinaryTree.
+     * Sets up a sample binary tree and tests the containsGreater and getLevel methods.
+     */
+    @Override
+    public void testing() {
+        searchBT tree = new searchBT();
+
+        // Create a sample binary tree
+        Node<Integer> root = new Node<>(10);
+        root.left = new Node<>(5);
+        root.right = new Node<>(15);
+        root.left.left = new Node<>(3);
+        root.left.right = new Node<>(7);
+        root.right.right = new Node<>(18);
+        tree.root = root;
+
+        // Test containsGreater
+        int itemToSearch1 = 8;
+        boolean containsGreaterResult1 = tree.containsGreater(itemToSearch1);
+        System.out.println("Contains element greater than " + itemToSearch1 + ": " + containsGreaterResult1);
+
+        int itemToSearch2 = 20;
+        boolean containsGreaterResult2 = tree.containsGreater(itemToSearch2);
+        System.out.println("Contains element greater than " + itemToSearch2 + ": " + containsGreaterResult2);
+
+        // Test getLevel
+        int itemToFindLevel1 = 7;
+        int levelResult1 = tree.getLevel(itemToFindLevel1);
+        System.out.println("Level of " + itemToFindLevel1 + " is: " + levelResult1);
+
+        int itemToFindLevel2 = 18;
+        int levelResult2 = tree.getLevel(itemToFindLevel2);
+        System.out.println("Level of " + itemToFindLevel2 + " is: " + levelResult2);
+    }
+}
