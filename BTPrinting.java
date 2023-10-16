@@ -4,7 +4,12 @@ public class BTPrinting extends BinaryTree
 {
 	// POST ORDER METHOD //
 	// This method prints a given binary tree with post-order traversal
-	public void PostOrder(Node root)
+	public void PostOrder()
+	{
+		PostOrder(this.root);
+	}	
+	
+	private void PostOrder(Node root)
 	{
 		// If the local root is null, return, as it is a leaf node
 		if(root == null)
@@ -22,7 +27,12 @@ public class BTPrinting extends BinaryTree
 	// PRINT RIGHT METHOD //
 	// This method traverses as deeply down the right branch of a given tree as it can,
 	// and then prints the result from the deepest back to the root
-	public void PrintRight(Node root)
+	public void PrintRight()
+	{
+		PrintRight(this.root);
+	}	
+	
+	private void PrintRight(Node root)
 	{
 		// If the root is null, return
 		if(root == null)
