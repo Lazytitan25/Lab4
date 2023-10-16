@@ -1,0 +1,17 @@
+package lab4;
+public class lab4 {
+	public static void main(String args[])
+	{
+		BinaryTree<Integer> testBT1 = new BTPrinting();
+		BinaryTree<Integer> testBT2 = new searchBT();
+		BinaryTree<Integer> testBT3 = new aggregateBT();
+		
+		
+		System.out.printLn(testBT1.postOrder());
+		System.out.printLn(testBT1.printRight());
+		System.out.printLn(testBT2.containsGreater(3));
+		System.out.printLn(testBT2.getLevel(7));
+		System.out.printLn(testBT3.countEvenNumber());
+		System.out.printLn(testBT3.findSum());
+	}
+}
